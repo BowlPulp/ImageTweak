@@ -10,11 +10,11 @@ const Footer = () => {
             <a href="/" className="hover:text-gray-200">
               Home
             </a>
-            <a href="/features" className="hover:text-gray-200">
-              Features
-            </a>
             <a href="/contact" className="hover:text-gray-200">
               Contact
+            </a>
+            <a href="https://github.com/BowlPulp/ImageTweak" className="hover:text-gray-200">
+              Contribute
             </a>
           </div>
 

@@ -22,8 +22,8 @@ const Navbar = () => {
             <a href="/contact" className="text-white hover:text-gray-200">
               Contact
             </a>
-            <a href="/features" className="text-white hover:text-gray-200">
-              Features
+            <a href="https://github.com/BowlPulp/ImageTweak" className="text-white hover:text-gray-200">
+              Contribute
             </a>
           </div>
 

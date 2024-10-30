@@ -7,7 +7,7 @@ import ImageConverter from './components/main/ImageConvertor';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/404/NotFound';
 import ImageResizer from './components/main/ImageResizer';
-import ContactUs from './components/contact/ContactUs';
+import ContactUs from './components/contact/ContactUs'
 
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
       <Route path='/' element={<LandingPage/>} />
       <Route path="/image-convertor" element={<ImageConverter/>} />
       <Route path="/image-resize" element={<ImageResizer/>} />
-      <Route path="*" element={<NotFound/>} />
       <Route path="/contact" element={<ContactUs/>} />
+      <Route path="*" element={<NotFound/>} />
       </Routes>
       <Footer />
     </div>
