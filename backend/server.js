@@ -5,7 +5,7 @@ const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-const PORT = 2000;
+const PORT = process.env.PORT || 2000;
 
 // Middleware
 app.use(cors({ origin: '*' })); // Allows all origins
