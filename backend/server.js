@@ -2,8 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const sharp = require('sharp');
 const cors = require('cors');
-const path = require('path');
-const fs = require('fs');
+const axios = require('axios');
 
 const app = express();
 const PORT = 2000;
@@ -45,26 +44,23 @@ app.post('/generate-meme', upload.none(), async (req, res) => {
     return res.status(400).json({ error: 'Name and image are required' });
   }
 
-  // Path to the meme template in the 'public/images' directory
-  const imagePath = path.join(__dirname, 'public', 'images', image);
-
-  if (!fs.existsSync(imagePath)) {
-    return res.status(404).json({ error: 'Template image not found' });
-  }
-
+  // Get the meme image from the URL
   try {
+    const response = await axios.get(image, { responseType: 'arraybuffer' });
+    const imageBuffer = Buffer.from(response.data);
+
     // Define coordinates and transformations for each meme
     const memeData = {
-      'meme1.jpg': { x: '39%', y: '98%', rotate: -50, rx: 100, ry: 400 }, // Example for meme1.jpg
-      'meme2.jpg': { x: '40%', y: '80%', rotate: 0, rx: 100, ry: 400 },   // Example for other memes
-      'meme3.jpg': { x: '45%', y: '80%', rotate: 45, rx: 100, ry: 400 }   // Example for other memes
+      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme1.jpg': { x: '39%', y: '98%', rotate: -50, rx: 100, ry: 400 },
+      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme2.jpg': { x: '40%', y: '80%', rotate: 0, rx: 100, ry: 400 },
+      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme3.jpg': { x: '45%', y: '80%', rotate: 45, rx: 100, ry: 400 },
     };
 
     // Access meme data based on the selected image
     const { x, y, rotate, rx, ry } = memeData[image];
 
     // Generate meme with text overlay using Sharp
-    const meme = await sharp(imagePath)
+    const meme = await sharp(imageBuffer)
       .resize(500, 500, { fit: 'contain' }) // Resize without cropping
       .composite([
         {

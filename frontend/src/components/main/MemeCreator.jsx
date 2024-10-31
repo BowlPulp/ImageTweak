@@ -1,22 +1,22 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MemeCreator = () => {
   const [name, setName] = useState('');
-  const [selectedImage, setSelectedImage] = useState('meme1.jpg');
+  const [selectedImage, setSelectedImage] = useState('https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme1.jpg'); // Set initial image as raw URL
   const [generatedMeme, setGeneratedMeme] = useState(null);
 
-  // Predefined images (ensure these images are in the `public` directory or accessible path)
+  // Predefined images with raw GitHub URLs
   const images = [
-    { id: 1, src: 'meme1.jpg', name: 'Meme 1' },
-    { id: 2, src: 'meme2.jpg', name: 'Meme 2' },
-    { id: 3, src: 'meme3.jpg', name: 'Meme 3' }
+    { id: 1, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme1.jpg', name: 'Meme 1' },
+    { id: 2, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme2.jpg', name: 'Meme 2' },
+    { id: 3, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme3.jpg', name: 'Meme 3' }
   ];
 
   const handleGenerateMeme = async () => {
     try {
-      const response = await fetch('http://localhost:2000/generate-meme', {
+      const response = await fetch('http://localhost:2000/generate-meme', { // Update this to your deployed URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
