@@ -16,6 +16,12 @@ app.use(express.json());
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+
+// Test Route
+app.post('/test', (req,res)=>{
+  res.send('Server is working fine');
+});
+
 // Endpoint for image conversion
 app.post('/convert', upload.single('image'), async (req, res) => {
   const { format } = req.body; // Get desired format from the request
