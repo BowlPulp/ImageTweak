@@ -23,7 +23,11 @@ const Content = () => {
 
   const handleImageSizeClick = () => {
     navigate("/image-resize");
-  }
+  };
+
+  const handleMemeCreatorClick = () => {
+    navigate("/meme-creator");
+  };
   return (
     <div className="relative z-20 mx-auto flex max-w-6xl flex-col items-center justify-center px-4 py-24 md:px-8 md:py-36 h-screen">
       <motion.div
@@ -101,6 +105,10 @@ const Content = () => {
         </SplashButton>
         <SplashButton className="flex items-center gap-2" onClick={handleImageSizeClick}>
           Image Compressor
+          <FiArrowRight />
+        </SplashButton>
+        <SplashButton className="flex items-center gap-2" onClick={handleMemeCreatorClick}>
+          Meme Creator
           <FiArrowRight />
         </SplashButton>
       </motion.div>
