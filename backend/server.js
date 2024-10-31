@@ -8,7 +8,8 @@ const app = express();
 const PORT = 2000;
 
 // Middleware
-app.use(cors()); // Enable CORS
+app.use(cors({ origin: '*' })); // Allows all origins
+ // Enable CORS
 app.use(express.json());
 
 // Configure multer for file uploads
