@@ -59,8 +59,8 @@ app.post('/generate-meme', upload.none(), async (req, res) => {
     // Define coordinates and transformations for each meme
     const memeData = {
       'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme1.jpg': { x: '39%', y: '98%', rotate: -50, rx: 100, ry: 400 },
-      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme2.jpg': { x: '40%', y: '80%', rotate: 0, rx: 100, ry: 400 },
-      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme3.jpg': { x: '45%', y: '80%', rotate: 45, rx: 100, ry: 400 },
+      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/changemymind.jpg': { x: '50%', y: '65%', rotate: -15, rx: 100, ry: 400 },
+      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/clownmeme.jpg': { x: '50%', y: '70%', rotate: 0, rx: 100, ry: 400 },
     };
 
     // Access meme data based on the selected image

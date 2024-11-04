@@ -10,8 +10,8 @@ const MemeCreator = () => {
   // Predefined images with raw GitHub URLs
   const images = [
     { id: 1, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme1.jpg', name: 'Meme 1' },
-    { id: 2, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme2.jpg', name: 'Meme 2' },
-    { id: 3, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme3.jpg', name: 'Meme 3' }
+    { id: 2, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/changemymind.jpg', name: 'Meme 2' },
+    { id: 3, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/clownmeme.jpg', name: 'Meme 3' }
   ];
 
   const handleGenerateMeme = async () => {
