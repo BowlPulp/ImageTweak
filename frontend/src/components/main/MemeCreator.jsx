@@ -11,7 +11,7 @@ const MemeCreator = () => {
   const images = [
     { id: 1, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme1.jpg', name: 'Meme 1' },
     { id: 2, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/changemymind.jpg', name: 'Meme 2' },
-    { id: 3, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/clownmeme.jpg', name: 'Meme 3' }
+    { id: 3, src: 'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/clownmeme.jpeg', name: 'Meme 3' }
   ];
 
   const handleGenerateMeme = async () => {
