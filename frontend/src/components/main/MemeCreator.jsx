@@ -15,6 +15,9 @@ const MemeCreator = () => {
   ];
 
   const handleGenerateMeme = async () => {
+    // Display loading toast
+    const loadingToastId = toast.loading("Generating meme...");
+
     try {
       const response = await fetch('https://imagetweak.onrender.com/generate-meme', { // Update this to your deployed URL
         method: 'POST',
@@ -34,10 +37,16 @@ const MemeCreator = () => {
       const blob = await response.blob(); // Get the response as a Blob
       const url = URL.createObjectURL(blob); // Create a URL for the blob
       setGeneratedMeme(url); // Set the URL for displaying the generated meme
-      toast.success('Meme generated successfully!'); // Show success toast
+
+      // Dismiss the loading toast and show success message
+      toast.dismiss(loadingToastId);
+      toast.success('Meme generated successfully!');
     } catch (error) {
       console.error(error);
-      toast.error('Failed to generate meme. Please try again.'); // Show error toast
+
+      // Dismiss the loading toast and show error message
+      toast.dismiss(loadingToastId);
+      toast.error('Failed to generate meme. Please try again.');
     }
   };
 
