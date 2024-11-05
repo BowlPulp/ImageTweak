@@ -58,13 +58,13 @@ app.post('/generate-meme', upload.none(), async (req, res) => {
 
     // Define coordinates and transformations for each meme
     const memeData = {
-      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme1.jpg': { x: '39%', y: '98%', rotate: -50, rx: 100, ry: 400 },
-      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/changemymind.jpg': { x: '50%', y: '65%', rotate: -15, rx: 100, ry: 400 },
-      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/clownmeme.jpeg': { x: '50%', y: '75%', rotate: 0, rx: 100, ry: 400 },
+      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/meme1.jpg': { x: '39%', y: '98%', f: 30, rotate: -50, rx: 100, ry: 400 },
+      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/changemymind.jpg': { x: '70%', y: '75%',f: 20, rotate: -20, rx: 100, ry: 400 },
+      'https://raw.githubusercontent.com/BowlPulp/ImageTweak/main/frontend/public/images/clownmeme.jpeg': { x: '50%', y: '75%',f: 30, rotate: 0, rx: 100, ry: 400 },
     };
 
     // Access meme data based on the selected image
-    const { x, y, rotate, rx, ry } = memeData[image];
+    const { x, y, f, rotate, rx, ry } = memeData[image];
 
     // Generate meme with text overlay using Sharp
     const meme = await sharp(imageBuffer)
@@ -73,7 +73,7 @@ app.post('/generate-meme', upload.none(), async (req, res) => {
         {
           input: Buffer.from(
             `<svg height="500" width="500">
-               <text x="${x}" y="${y}" font-size="30" fill="black" text-anchor="middle" font-family="Arial" transform="rotate(${rotate} ${rx},${ry})">${name}</text>
+               <text x="${x}" y="${y}" font-size="${f}" fill="black" text-anchor="middle" font-family="Arial" transform="rotate(${rotate} ${rx},${ry})">${name}</text>
              </svg>`
           ),
           gravity: 'south',
