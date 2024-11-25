@@ -51,7 +51,7 @@ const ImageConverter = () => {
     formData.append("format", format);
 
     try {
-      const response = await fetch("http://localhost:2000/convert", {
+      const response = await fetch("https://imagetweak.onrender.com/convert", {
         method: "POST",
         body: formData,
       });
